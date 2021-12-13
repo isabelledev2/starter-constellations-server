@@ -1,137 +1,256 @@
 /* -------  General Styles ------- */
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
+
 h2 {
-  font-size: 26px;
-  font-weight: 400;
+  font-size: 34px;
+  font-weight: 500;
   margin: 0 10px 10px 10px;
   text-align: center;
 }
+
 h3 {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 550;
 }
+
 p {
   line-height: 1.5em;
   margin: 0;
 }
+
 section {
   padding: 20px;
 }
+
 section.alternate-background {
-  background-color: #00A699;
+  background-color: #00a699;
   color: #fff;
 }
+
+/* Responsive Images */
 main img {
   width: 100%;
 }
+
 /* ---  Groups & Items --- */
+
 .group {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
-.item {
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-item {
   flex: 1;
-  margin: 10px;
+  margin: 12px 5px;
 }
-.item-double {
-  flex: 2;
+
+.about-item {
+  flex: 1;
+  margin: 12px;
 }
+
+.ideas-item {
+  flex: 1;
+  margin: 12px;
+}
+
+.host-item {
+  flex: 1;
+  margin: 12px;
+}
+
 /* -------  Navigation ------- */
+
 header {
-  background-color: #FF385C;
+  background-color: #ff385c;
   padding: 20px 20px 0 20px;
   text-align: center;
 }
+
 .logo {
   font-family: "Pangolin", cursive;
   font-size: 72px;
   color: #fff;
+  text-align: center;
 }
+
 header nav {
   display: flex;
   justify-content: center;
 }
+
 header nav ul {
   display: flex;
+  justify-content: center;
 }
+
 header nav ul li {
   list-style-type: none;
 }
+
 header nav ul li a {
   color: #fff;
+  font-size: 20px;
   text-decoration: none;
   padding: 0 20px 0 0;
 }
+
 header nav ul li a:hover {
   color: #bdbdbd;
   text-decoration: none;
 }
+
 /* -------  Search Form ------- */
+
 form {
-  border: 2px solid #FF385C;
+  border: 2px solid #ff385c;
+  margin: 0 10px;
   padding: 10px;
 }
+
 form label {
   font-weight: bold;
 }
-form div {
-  display: flex;
-  justify-content: space-between;
-}
-form select, form input {
+
+form select,
+form input {
   margin-bottom: 20px;
   width: 180px;
 }
+
 form button {
-  background-color: #FF385C;
+  background-color: #ff385c;
   border: none;
   color: #fff;
-  font-size: 24px;
-  padding: 15px;
+  font-size: 34px;
+  padding: 12px;
+  margin-top: 20px 10px 10px 10px;
   width: 100%;
 }
+
 /* -------  Footer ------- */
+
 footer {
-  background-color: #FF385C;
+  background-color: #ff385c;
 }
+
 footer p {
   color: #fff;
   text-align: center;
   padding: 20px;
 }
+
 /* -------  Media Query ------- */
+
 @media all and (min-width: 480px) {
+
+/* Header */
   header {
     display: flex;
-    justify-content: space-between;
-    padding: 0;
-  }
-  .logo {
-    margin: 14px 0 14px 20px;
-    padding-top: 0;
-    font-size: 42px;
-  }
-  header nav ul {
-    align-items: center;
-  }
-  .group {
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
   }
-  form {
+
+  .logo {
+    margin: 14px 0;
+    padding-top: 0;
+  }
+
+  header nav {
+    margin-top: 30px;
+  }
+
+/* Form */
+  .desktop-form-group {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 0 8px;
   }
-  form div {
+
+  .form-group {
+    /* Group style for the label and input */
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    /* Style for the label and input as one item */
+    flex: 1;
+    align-self: center;
   }
+
+  /* Style for the label and input as individual items */
+  .form-item {
+    flex: 1;
+    margin: 0;
+  }
+
   form button {
+    margin: 8px 0;
+  }
+
+  .button-item {
     flex: 1;
   }
-  form select, form input {
+
+/* About */
+  .desktop-about-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+  }
+  
+  .about-item {
+    flex: 1;
+    margin: 10px;
+  }
+
+  /* Sets the paragraph as twice the size of each img item */
+  .double-item {
+    flex: 2;
+  }
+
+/* Ideas */
+  .desktop-ideas-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .ideas-item {
+    flex: 0 50%;
+    margin: 10px;
+  }
+
+  .ideas h2 {
     margin-bottom: 0px;
+  }
+
+/* Host */
+  .desktop-host-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .host-item {
+    flex: 1;
+    margin: 10px;
   }
 }

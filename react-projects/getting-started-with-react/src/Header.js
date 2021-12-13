@@ -1,7 +1,9 @@
-import "./Header.css";
-
+// Header.js
 function Header() {
-  return <h1>Header to the page.</h1>;
+  const loggedIn = ("Log In");
+  return (
+    <button onClick={loggedIn}>{loggedIn ? "Log Out" : "Log In"}</button>
+  );
 }
 
 export default Header;

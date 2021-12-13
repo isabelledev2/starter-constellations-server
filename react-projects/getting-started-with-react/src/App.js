@@ -1,21 +1,30 @@
-// App.js
-import "./App.css";
-import Header from "./Header";
-import WelcomeBack from "./WelcomeBack";
-import Footer from "./Footer";
+import { useState } from "react";
+import SubscriberForm from "./SubscriberForm";
+import SubscriberList from "./SubscriberList";
 
 function App() {
+  const [subscribers, setSubscribers] = useState([]);
+
+  const createSubscriber = (newSubscriber) =>
+    setSubscribers((currentSubscribers) => [
+      newSubscriber,
+      ...currentSubscribers,
+    ]);
+
+  const deleteSubscriber = (indexToDelete) =>
+    setSubscribers((currentSubscribers) =>
+      currentSubscribers.filter((post, index) => index !== indexToDelete)
+    );
+
   return (
     <>
-      <Header />
-      <WelcomeBack name="Joe" />
-      <WelcomeBack name="Anna" />
-      <WelcomeBack />
-      <Footer />
+      <SubscriberForm />
+      <SubscriberList
+        subscribers={subscribers}
+        deleteSubscriber={deleteSubscriber}
+      />
     </>
   );
 }
 
 export default App;
-
-
