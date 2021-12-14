@@ -4,15 +4,18 @@ function SubscriberForm() {
     const initialFormState = {
       name: "Isabelle",
       email: "",
-      referral: "",
+      referral: "Twitter",
+      age: "",
+      subscription: true,
     };
     const [formData, setFormData] = useState({ ...initialFormState });
     const handleChange = ({ target }) => {
-      setFormData({
-        ...formData,
-        [target.name]: target.value,
-      });
-    };
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        setFormData({
+          ...formData,
+          [target.name]: value,
+        });
+      };
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -56,6 +59,53 @@ function SubscriberForm() {
     <option value="wom">Word of Mouth</option>
     <option value="youtube">YouTube</option>
   </select>
+</label>
+<fieldset>
+  <legend>How old are you?</legend>
+  <label htmlFor="low">
+    Under 18
+    <input
+      id="low"
+      type="radio"
+      name="age"
+      onChange={handleChange}
+      value="low"
+      checked={formData.age === "low"}
+    />
+  </label>
+  <label htmlFor="middle">
+    18 - 60
+    <input
+      id="middle"
+      type="radio"
+      name="age"
+      onChange={handleChange}
+      value="middle"
+      checked={formData.age === "middle"}
+    />
+  </label>
+  <label htmlFor="high">
+      Over 60
+      <input
+        id="high"
+        type="radio"
+        name="age"
+        onChange={handleChange}
+        value="high"
+        checked={formData.age === "high"}
+    />
+  </label>
+</fieldset>
+<label htmlFor="subscription">
+  Receive email notifications?
+  <input
+    id="subscription"
+    type="checkbox"
+    name="subscription"
+    onChange={handleChange}
+    checked={formData.subscription}
+    value="subscription"
+  />
 </label>
         <br />
         <button type="submit">Submit</button>
